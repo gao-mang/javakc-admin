@@ -56,23 +56,32 @@ export const constantRoutes = [
   },
 
   {
-    path: '/example',
+    path: '/cms/book',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/cms/book',
+    name: 'CmsBook',
+    meta: { title: '书籍管理', icon: 'example' },
+    alwaysShow: true,
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'list',
+        name: 'BookList',
+        component: () => import('@/views/cms/book/list'),
+        meta: { title: '书籍列表', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'save',
+        name: 'SaveBook',
+        component: () => import('@/views/cms/book/save'),
+        meta: { title: '新增书籍', icon: 'tree' },
+        hidden: true
+      },
+      {
+        path: 'update/:id',
+        name: 'UpdateBook',
+        component: () => import('@/views/cms/book/update'),
+        meta: { title: '修改书籍', icon: 'tree' },
+        hidden: true
       }
     ]
   },
